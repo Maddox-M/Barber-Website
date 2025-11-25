@@ -3,18 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Barber Shop - Glasgow, KY</title>
+  <title>GeeCuttin Up Barbershop - Glasgow & Bowling Green, KY</title>
 
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
-    body { scroll-behavior: smooth; }
-    .fade-in { animation: fadeIn 1.1s ease-in-out; }
+    body {
+      scroll-behavior: smooth;
+      background-color: #050509;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.1s ease-in-out;
+    }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(12px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Gold gradient hero text */
+    .gold-gradient {
+      background-image: linear-gradient(90deg, #facc15, #f97316, #facc15);
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: goldShine 4s linear infinite;
+    }
+
+    @keyframes goldShine {
+      to {
+        background-position: -200% center;
+      }
+    }
+
+    /* Lightbox */
     #lightbox {
       position: fixed;
       display: none;
@@ -22,175 +47,403 @@
       align-items: center;
       top: 0; left: 0;
       width: 100vw; height: 100vh;
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       z-index: 50;
     }
+
     #lightbox img {
-      max-width: 90%; max-height: 90%;
+      max-width: 90%;
+      max-height: 90%;
       border-radius: 10px;
-      box-shadow: 0 0 15px #000;
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.7);
+    }
+
+    /* Gold glow card */
+    .glow-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .glow-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+      border-color: rgba(250, 204, 21, 0.7);
     }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800">
+<body class="text-gray-100">
 
-<nav class="bg-white shadow-md fixed w-full top-0 z-40">
-  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
-    <h1 class="text-2xl font-bold text-blue-600">Barber Shop</h1>
-    <div class="space-x-6 text-gray-700 font-semibold">
-      <a href="#about" class="hover:text-blue-600">About</a>
-      <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
-      <a href="#appointment" class="hover:text-blue-600">Book</a>
-      <a href="#contact" class="hover:text-blue-600">Contact</a>
-      <a href="#admin" class="hover:text-blue-600">Admin</a>
+  <!-- NAVBAR -->
+  <nav class="bg-black/80 backdrop-blur-md shadow-lg fixed w-full top-0 z-40 border-b border-yellow-600/20">
+    <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+      <!-- Logo -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full border-2 border-yellow-500 flex items-center justify-center text-yellow-500 font-extrabold text-lg">
+          GCU
+        </div>
+        <div class="leading-tight">
+          <div class="text-xl font-extrabold tracking-wide text-yellow-500 uppercase">
+            GeeCuttin Up
+          </div>
+          <div class="text-xs text-gray-400 uppercase tracking-wide">
+            Glasgow • Bowling Green
+          </div>
+        </div>
+      </div>
+
+      <!-- Nav links -->
+      <div class="hidden md:flex space-x-6 text-gray-300 font-semibold text-sm lg:text-base">
+        <a href="#about" class="hover:text-yellow-500">About</a>
+        <a href="#services" class="hover:text-yellow-500">Services</a>
+        <a href="#portfolio" class="hover:text-yellow-500">Portfolio</a>
+        <a href="#appointment" class="hover:text-yellow-500">Book</a>
+        <a href="#reviews" class="hover:text-yellow-500">Reviews</a>
+        <a href="#contact" class="hover:text-yellow-500">Contact</a>
+        <a href="#admin" class="hover:text-yellow-500">Admin</a>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="pt-20"></div>
+  <div class="pt-24"></div>
 
-<header class="bg-white py-16 text-center shadow fade-in">
-  <h1 class="text-4xl md:text-5xl font-bold text-blue-600 tracking-wide">Fresh Cuts • Clean Fades • Sharp Style</h1>
-  <p class="mt-4 text-lg text-gray-600">Your Local Barber in Glasgow, KY</p>
-  <a href="#appointment"
-     class="mt-6 inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
-    Book Now
-  </a>
-</header>
+  <!-- HERO -->
+  <header class="py-20 text-center fade-in bg-gradient-to-b from-black via-zinc-900 to-black">
+    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-wide gold-gradient drop-shadow-xl">
+      Premium Cuts • Sharp Fades • Clean Style
+    </h1>
+    <p class="mt-4 text-lg md:text-xl text-gray-300 font-semibold">
+      GeeCuttin Up Barbershop — Glasgow & Bowling Green, KY
+    </p>
 
-<section id="about" class="max-w-4xl mx-auto bg-white mt-10 p-8 rounded-xl shadow fade-in">
-  <h2 class="text-3xl font-bold text-blue-600 mb-4">About Me</h2>
-  <p class="text-gray-700 leading-relaxed">
-    I'm your local barber in Glasgow, KY specializing in fades, tapers, classic cuts, and modern styles.
-    I take pride in clean, sharp, and stylish haircuts that boost your confidence.
-  </p>
-</section>
-
-<section id="portfolio" class="max-w-5xl mx-auto mt-12 p-6 fade-in">
-  <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Before & After Gallery</h2>
-
-  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
-      <img src="before-after1.jpg" class="rounded-lg w-full" />
-      <p class="text-gray-700 mt-2 text-center">Low Taper Fade</p>
-    </div>
-
-    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
-      <img src="before-after2.jpg" class="rounded-lg w-full" />
-      <p class="text-gray-700 mt-2 text-center">Classic Cut</p>
-    </div>
-
-    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
-      <img src="before-after3.jpg" class="rounded-lg w-full" />
-      <p class="text-gray-700 mt-2 text-center">High Fade</p>
-    </div>
-  </div>
-
-  <div class="text-center mt-8">
     <a href="#appointment"
-       class="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition">
-      Book This Style
+      class="mt-8 inline-block px-10 py-4 bg-yellow-500 text-black font-extrabold rounded-lg text-lg hover:bg-yellow-400 transition">
+      Book Now
     </a>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-4xl mx-auto bg-zinc-900 mt-12 p-8 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 mb-4 uppercase">About GeeCuttin Up</h2>
+    <p class="text-gray-300 text-lg leading-relaxed">
+      GeeCuttin Up is your go-to barbershop for clean fades, tapers, classic cuts, and modern styles.
+      From Glasgow to Bowling Green, we bring high-end energy with every cut — designer-level detail,
+      sharp lines, and a vibe that matches your lifestyle.
+    </p>
+  </section>
+
+  <!-- SERVICES & PRICING -->
+  <section id="services" class="max-w-5xl mx-auto bg-zinc-900 mt-12 p-8 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 mb-6 uppercase text-center">
+      Services & Pricing
+    </h2>
+
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm md:text-base text-left border border-yellow-700/30">
+        <thead class="bg-black/60 text-yellow-500">
+          <tr>
+            <th class="px-4 py-3 border">Service</th>
+            <th class="px-4 py-3 border">Description</th>
+            <th class="px-4 py-3 border">Price</th>
+          </tr>
+        </thead>
+        <tbody class="bg-zinc-950">
+          <tr>
+            <td class="px-4 py-3 border text-gray-100 font-semibold">Low Taper Fade</td>
+            <td class="px-4 py-3 border text-gray-300">Clean low taper with sharp lineup and detail work.</td>
+            <td class="px-4 py-3 border text-yellow-400 font-semibold">$30</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border text-gray-100 font-semibold">High Fade</td>
+            <td class="px-4 py-3 border text-gray-300">High fade with crisp transitions and fresh top.</td>
+            <td class="px-4 py-3 border text-yellow-400 font-semibold">$35</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border text-gray-100 font-semibold">Classic Cut</td>
+            <td class="px-4 py-3 border text-gray-300">Traditional cut with modern finishing touches.</td>
+            <td class="px-4 py-3 border text-yellow-400 font-semibold">$25</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border text-gray-100 font-semibold">Beard Trim & Line-Up</td>
+            <td class="px-4 py-3 border text-gray-300">Beard shape, trim, and razor-sharp lines.</td>
+            <td class="px-4 py-3 border text-yellow-400 font-semibold">$20</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-3 border text-gray-100 font-semibold">Full Service Package</td>
+            <td class="px-4 py-3 border text-gray-300">Haircut + beard + finish — complete clean-up.</td>
+            <td class="px-4 py-3 border text-yellow-400 font-semibold">$50</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="max-w-5xl mx-auto mt-16 p-6 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-center text-yellow-500 mb-10 uppercase tracking-wide">
+      Before & After Gallery
+    </h2>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-zinc-900 p-4 rounded-xl shadow-lg border border-yellow-700/30 glow-card">
+        <img src="before-after1.jpg" class="rounded-lg w-full lightbox-trigger" alt="Low Taper Fade Before & After" />
+        <p class="text-gray-200 mt-3 text-center font-semibold text-lg">Low Taper Fade</p>
+        <button
+          class="mt-4 w-full py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg book-style-btn"
+          data-style="Low Taper Fade">
+          Book This Style
+        </button>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-zinc-900 p-4 rounded-xl shadow-lg border border-yellow-700/30 glow-card">
+        <img src="before-after2.jpg" class="rounded-lg w-full lightbox-trigger" alt="Classic Cut Before & After" />
+        <p class="text-gray-200 mt-3 text-center font-semibold text-lg">Classic Cut</p>
+        <button
+          class="mt-4 w-full py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg book-style-btn"
+          data-style="Classic Cut">
+          Book This Style
+        </button>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-zinc-900 p-4 rounded-xl shadow-lg border border-yellow-700/30 glow-card">
+        <img src="before-after3.jpg" class="rounded-lg w-full lightbox-trigger" alt="High Fade Before & After" />
+        <p class="text-gray-200 mt-3 text-center font-semibold text-lg">High Fade</p>
+        <button
+          class="mt-4 w-full py-2 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg book-style-btn"
+          data-style="High Fade">
+          Book This Style
+        </button>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#appointment"
+        class="inline-block px-10 py-4 bg-yellow-500 text-black font-extrabold rounded-lg text-lg hover:bg-yellow-400 transition">
+        Book Any Style
+      </a>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section id="appointment" class="max-w-3xl mx-auto bg-zinc-900 mt-16 p-10 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 text-center mb-8 uppercase">Book an Appointment</h2>
+
+    <form id="bookingForm" class="space-y-5 text-black">
+      <input type="text" name="name" placeholder="Your Name" required class="w-full p-4 rounded border" />
+      <input type="email" name="email" placeholder="Your Email" required class="w-full p-4 rounded border" />
+      <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-4 rounded border" />
+
+      <select name="service" id="serviceSelect" required class="w-full p-4 rounded border">
+        <option value="">Select Haircut Style</option>
+        <option value="Low Taper Fade">Low Taper Fade</option>
+        <option value="High Fade">High Fade</option>
+        <option value="Classic Cut">Classic Cut</option>
+        <option value="Beard Trim & Line-Up">Beard Trim & Line-Up</option>
+        <option value="Full Service Package">Full Service Package</option>
+      </select>
+
+      <input type="date" name="date" required class="w-full p-4 rounded border" />
+      <input type="time" name="time" required class="w-full p-4 rounded border" />
+
+      <button
+        class="w-full py-4 bg-yellow-500 hover:bg-yellow-400 text-black font-extrabold rounded-lg text-lg transition">
+        Book Appointment
+      </button>
+
+      <p id="bookingMessage" class="text-center text-sm mt-2 text-gray-200"></p>
+    </form>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="max-w-5xl mx-auto bg-zinc-900 mt-16 p-10 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 mb-8 uppercase text-center">What Clients Say</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-black/60 p-5 rounded-xl border border-yellow-700/30">
+        <p class="text-gray-200 italic">
+          "Best fade in Glasgow. Bro had me ready for the weekend, no cap."
+        </p>
+        <p class="mt-3 text-yellow-400 font-semibold">— Jay</p>
+      </div>
+      <div class="bg-black/60 p-5 rounded-xl border border-yellow-700/30">
+        <p class="text-gray-200 italic">
+          "Always locked in, never rushed. Line up stays crispy every time."
+        </p>
+        <p class="mt-3 text-yellow-400 font-semibold">— Malik</p>
+      </div>
+      <div class="bg-black/60 p-5 rounded-xl border border-yellow-700/30">
+        <p class="text-gray-200 italic">
+          "Drives to Bowling Green and still on time. Professional and fire cuts."
+        </p>
+        <p class="mt-3 text-yellow-400 font-semibold">— Dre</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT + MAPS -->
+  <section id="contact" class="max-w-5xl mx-auto bg-zinc-900 mt-16 p-10 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 mb-6 uppercase text-center">Contact & Locations</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="space-y-4">
+        <p class="text-gray-200 text-lg font-semibold">Glasgow & Bowling Green, KY</p>
+        <p class="text-gray-200 text-lg">Phone: 270-123-4567</p>
+        <p class="text-gray-200 text-lg">Email: barber@gmail.com</p>
+        <p class="text-yellow-400 mt-3 font-semibold text-lg">Hours: Mon–Fri • 9AM–5PM</p>
+      </div>
+
+      <div class="space-y-4">
+        <div>
+          <p class="text-yellow-400 font-semibold mb-1">Glasgow Location</p>
+          <iframe
+            class="w-full h-40 rounded-lg border border-yellow-700/40"
+            src="https://www.google.com/maps?q=Glasgow%20KY&output=embed"
+            loading="lazy"></iframe>
+        </div>
+        <div>
+          <p class="text-yellow-400 font-semibold mb-1">Bowling Green Location</p>
+          <iframe
+            class="w-full h-40 rounded-lg border border-yellow-700/40"
+            src="https://www.google.com/maps?q=Bowling%20Green%20KY&output=embed"
+            loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADMIN -->
+  <section id="admin" class="max-w-5xl mx-auto bg-zinc-900 mt-16 mb-20 p-10 rounded-xl shadow-xl border border-yellow-700/20 fade-in">
+    <h2 class="text-3xl md:text-4xl font-extrabold text-yellow-500 mb-6 text-center uppercase">Admin Dashboard</h2>
+
+    <!-- Admin login -->
+    <div id="adminLogin" class="max-w-md mx-auto mb-6 text-black">
+      <input type="password" id="adminPassword" placeholder="Admin Password"
+        class="w-full p-4 rounded border mb-4" />
+      <button id="adminLoginBtn"
+        class="w-full py-3 bg-yellow-500 hover:bg-yellow-400 text-black font-bold rounded-lg">
+        Unlock Dashboard
+      </button>
+      <p id="adminLoginMsg" class="text-center text-sm text-red-500 mt-2"></p>
+    </div>
+
+    <!-- Admin content -->
+    <div id="adminContent" class="hidden text-white">
+      <h3 class="text-xl font-semibold mb-4">Upcoming Appointments</h3>
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm text-left border border-yellow-700/30">
+          <thead class="bg-black/60 text-yellow-400">
+            <tr>
+              <th class="px-3 py-2 border">Name</th>
+              <th class="px-3 py-2 border">Service</th>
+              <th class="px-3 py-2 border">Date</th>
+              <th class="px-3 py-2 border">Time</th>
+              <th class="px-3 py-2 border">Phone</th>
+              <th class="px-3 py-2 border">Email</th>
+              <th class="px-3 py-2 border">Created</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsBody">
+            <!-- Data goes here when Firebase is added -->
+          </tbody>
+        </table>
+      </div>
+      <p id="noAppointmentsMsg" class="text-gray-400 text-sm mt-3 hidden">No appointments yet.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="text-center text-gray-500 py-6 text-xs border-t border-yellow-700/20">
+    © 2025 GeeCuttin Up Barbershop. All Rights Reserved.
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" class="flex items-center justify-center">
+    <img src="" alt="Expanded haircut view" />
   </div>
-</section>
 
-<section id="appointment" class="max-w-3xl mx-auto bg-white mt-12 p-8 rounded-xl shadow fade-in">
-  <h2 class="text-3xl font-bold text-blue-600 text-center mb-6">Book an Appointment</h2>
-
-  <form id="bookingForm" class="space-y-4">
-    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded border" />
-    <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded border" />
-    <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-3 rounded border" />
-
-    <select name="service" required class="w-full p-3 rounded border">
-      <option value="">Select Haircut Style</option>
-      <option>Low Taper Fade</option>
-      <option>High Fade</option>
-      <option>Classic Cut</option>
-    </select>
-
-    <input type="date" name="date" required class="w-full p-3 rounded border" />
-    <input type="time" name="time" required class="w-full p-3 rounded border" />
-
-    <button class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition">
-      Book Appointment
+  <!-- MOBILE QUICK BOOK BAR -->
+  <div id="mobileQuickBook"
+    class="fixed bottom-0 inset-x-0 bg-yellow-500 text-black py-3 px-4 flex items-center justify-between md:hidden shadow-[0_-4px_20px_rgba(0,0,0,0.8)]">
+    <span class="font-semibold text-sm">Ready for a fresh cut?</span>
+    <button id="mobileBookBtn"
+      class="px-4 py-2 bg-black text-yellow-400 font-bold rounded-lg text-sm">
+      Book Now
     </button>
-
-    <p id="bookingMessage" class="text-center text-sm mt-2"></p>
-  </form>
-</section>
-
-<section id="contact" class="max-w-4xl mx-auto bg-white mt-12 p-8 rounded-xl shadow text-center fade-in">
-  <h2 class="text-3xl font-bold text-blue-600 mb-4">Contact</h2>
-  <p class="text-gray-700">123 Barber Road, Glasgow, KY</p>
-  <p class="text-gray-700">Phone: 270-123-4567</p>
-  <p class="text-gray-700">Email: barber@gmail.com</p>
-  <p class="text-blue-600 mt-2 font-semibold">Mon–Fri • 9AM–5PM</p>
-</section>
-
-<section id="admin" class="max-w-5xl mx-auto bg-white mt-12 mb-12 p-8 rounded-xl shadow fade-in">
-  <h2 class="text-3xl font-bold text-blue-600 mb-4 text-center">Admin Dashboard</h2>
-
-  <div id="adminLogin" class="max-w-md mx-auto mb-6">
-    <input type="password" id="adminPassword" placeholder="Admin Password"
-      class="w-full p-3 rounded border mb-3" />
-    <button id="adminLoginBtn"
-      class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg">
-      Unlock Dashboard
-    </button>
-    <p id="adminLoginMsg" class="text-center text-sm text-red-500 mt-2"></p>
   </div>
 
-  <div id="adminContent" class="hidden">
-    <h3 class="text-xl font-semibold mb-4">Upcoming Appointments</h3>
-    <table class="min-w-full text-sm text-left border">
-      <thead class="bg-gray-100">
-        <tr>
-          <th class="px-3 py-2 border">Name</th>
-          <th class="px-3 py-2 border">Service</th>
-          <th class="px-3 py-2 border">Date</th>
-          <th class="px-3 py-2 border">Time</th>
-          <th class="px-3 py-2 border">Phone</th>
-          <th class="px-3 py-2 border">Email</th>
-          <th class="px-3 py-2 border">Created</th>
-        </tr>
-      </thead>
-      <tbody id="appointmentsBody"></tbody>
-    </table>
-  </div>
-</section>
+  <!-- JS -->
+  <script>
+    // Lightbox
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = lightbox.querySelector("img");
 
-<footer class="text-center text-gray-600 py-6 mt-4">
-  &copy; 2025 Barber Shop. All Rights Reserved.
-</footer>
+    document.querySelectorAll(".lightbox-trigger").forEach(img => {
+      img.addEventListener("click", () => {
+        lightboxImg.src = img.src;
+        lightbox.style.display = "flex";
+      });
+    });
 
-<div id="lightbox"><img src="" /></div>
+    lightbox.addEventListener("click", () => {
+      lightbox.style.display = "none";
+    });
 
-<script type="module">
-// Lightbox
-const lightbox = document.getElementById("lightbox");
-const lightboxImg = lightbox.querySelector("img");
+    // Admin lock (simple front-end lock, not secure for real production)
+    const adminLoginBtn = document.getElementById("adminLoginBtn");
+    const adminPasswordInput = document.getElementById("adminPassword");
+    const adminLoginMsg = document.getElementById("adminLoginMsg");
+    const adminLoginBox = document.getElementById("adminLogin");
+    const adminContent = document.getElementById("adminContent");
 
-document.querySelectorAll(".lightbox-target img").forEach(img => {
-  img.addEventListener("click", () => {
-    lightboxImg.src = img.src;
-    lightbox.style.display = "flex";
-  });
-});
-lightbox.addEventListener("click", () => lightbox.style.display = "none");
+    const ADMIN_PASSWORD = "barber123"; // change this later
 
-// Admin lock
-const ADMIN_PASSWORD = "barber123";
-adminLoginBtn.onclick = () => {
-  if (adminPassword.value === ADMIN_PASSWORD) {
-    adminLogin.classList.add("hidden");
-    adminContent.classList.remove("hidden");
-  } else adminLoginMsg.textContent = "Incorrect password";
-};
+    adminLoginBtn.addEventListener("click", () => {
+      if (adminPasswordInput.value === ADMIN_PASSWORD) {
+        adminLoginBox.classList.add("hidden");
+        adminContent.classList.remove("hidden");
+        adminLoginMsg.textContent = "";
+      } else {
+        adminLoginMsg.textContent = "Incorrect password.";
+      }
+    });
 
-// Firebase placeholder
-</script>
+    // "Book This Style" buttons -> auto-fill service + scroll to booking
+    const serviceSelect = document.getElementById("serviceSelect");
+    const appointmentSection = document.getElementById("appointment");
+
+    document.querySelectorAll(".book-style-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const style = btn.getAttribute("data-style");
+        if (serviceSelect) {
+          serviceSelect.value = style;
+        }
+        appointmentSection.scrollIntoView({ behavior: "smooth" });
+        serviceSelect.focus();
+      });
+    });
+
+    // Booking form (currently just shows a success message)
+    const bookingForm = document.getElementById("bookingForm");
+    const bookingMessage = document.getElementById("bookingMessage");
+
+    bookingForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      bookingMessage.textContent = "Your appointment request has been received!";
+      bookingMessage.classList.remove("text-red-500");
+      bookingMessage.classList.add("text-green-400");
+      bookingForm.reset();
+    });
+
+    // Mobile quick book bar
+    const mobileBookBtn = document.getElementById("mobileBookBtn");
+    mobileBookBtn.addEventListener("click", () => {
+      appointmentSection.scrollIntoView({ behavior: "smooth" });
+    });
+
+    // Firebase placeholder: when you're ready, we can hook Firestore here
+  </script>
 
 </body>
 </html>
