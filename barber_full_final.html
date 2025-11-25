@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Barber Shop - Glasgow, KY</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    body { scroll-behavior: smooth; }
+    .fade-in { animation: fadeIn 1.1s ease-in-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    #lightbox {
+      position: fixed;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.8);
+      z-index: 50;
+    }
+    #lightbox img {
+      max-width: 90%; max-height: 90%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px #000;
+    }
+  </style>
+</head>
+
+<body class="bg-gray-100 text-gray-800">
+
+<nav class="bg-white shadow-md fixed w-full top-0 z-40">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <h1 class="text-2xl font-bold text-blue-600">Barber Shop</h1>
+    <div class="space-x-6 text-gray-700 font-semibold">
+      <a href="#about" class="hover:text-blue-600">About</a>
+      <a href="#portfolio" class="hover:text-blue-600">Portfolio</a>
+      <a href="#appointment" class="hover:text-blue-600">Book</a>
+      <a href="#contact" class="hover:text-blue-600">Contact</a>
+      <a href="#admin" class="hover:text-blue-600">Admin</a>
+    </div>
+  </div>
+</nav>
+
+<div class="pt-20"></div>
+
+<header class="bg-white py-16 text-center shadow fade-in">
+  <h1 class="text-4xl md:text-5xl font-bold text-blue-600 tracking-wide">Fresh Cuts • Clean Fades • Sharp Style</h1>
+  <p class="mt-4 text-lg text-gray-600">Your Local Barber in Glasgow, KY</p>
+  <a href="#appointment"
+     class="mt-6 inline-block px-8 py-3 bg-blue-600 text-white rounded-lg font-bold hover:bg-blue-700 transition">
+    Book Now
+  </a>
+</header>
+
+<section id="about" class="max-w-4xl mx-auto bg-white mt-10 p-8 rounded-xl shadow fade-in">
+  <h2 class="text-3xl font-bold text-blue-600 mb-4">About Me</h2>
+  <p class="text-gray-700 leading-relaxed">
+    I'm your local barber in Glasgow, KY specializing in fades, tapers, classic cuts, and modern styles.
+    I take pride in clean, sharp, and stylish haircuts that boost your confidence.
+  </p>
+</section>
+
+<section id="portfolio" class="max-w-5xl mx-auto mt-12 p-6 fade-in">
+  <h2 class="text-3xl font-bold text-center text-blue-600 mb-6">Before & After Gallery</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
+      <img src="before-after1.jpg" class="rounded-lg w-full" />
+      <p class="text-gray-700 mt-2 text-center">Low Taper Fade</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
+      <img src="before-after2.jpg" class="rounded-lg w-full" />
+      <p class="text-gray-700 mt-2 text-center">Classic Cut</p>
+    </div>
+
+    <div class="bg-white p-4 rounded-xl shadow-md cursor-pointer lightbox-target">
+      <img src="before-after3.jpg" class="rounded-lg w-full" />
+      <p class="text-gray-700 mt-2 text-center">High Fade</p>
+    </div>
+  </div>
+
+  <div class="text-center mt-8">
+    <a href="#appointment"
+       class="inline-block px-8 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition">
+      Book This Style
+    </a>
+  </div>
+</section>
+
+<section id="appointment" class="max-w-3xl mx-auto bg-white mt-12 p-8 rounded-xl shadow fade-in">
+  <h2 class="text-3xl font-bold text-blue-600 text-center mb-6">Book an Appointment</h2>
+
+  <form id="bookingForm" class="space-y-4">
+    <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 rounded border" />
+    <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 rounded border" />
+    <input type="tel" name="phone" placeholder="Your Phone" required class="w-full p-3 rounded border" />
+
+    <select name="service" required class="w-full p-3 rounded border">
+      <option value="">Select Haircut Style</option>
+      <option>Low Taper Fade</option>
+      <option>High Fade</option>
+      <option>Classic Cut</option>
+    </select>
+
+    <input type="date" name="date" required class="w-full p-3 rounded border" />
+    <input type="time" name="time" required class="w-full p-3 rounded border" />
+
+    <button class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition">
+      Book Appointment
+    </button>
+
+    <p id="bookingMessage" class="text-center text-sm mt-2"></p>
+  </form>
+</section>
+
+<section id="contact" class="max-w-4xl mx-auto bg-white mt-12 p-8 rounded-xl shadow text-center fade-in">
+  <h2 class="text-3xl font-bold text-blue-600 mb-4">Contact</h2>
+  <p class="text-gray-700">123 Barber Road, Glasgow, KY</p>
+  <p class="text-gray-700">Phone: 270-123-4567</p>
+  <p class="text-gray-700">Email: barber@gmail.com</p>
+  <p class="text-blue-600 mt-2 font-semibold">Mon–Fri • 9AM–5PM</p>
+</section>
+
+<section id="admin" class="max-w-5xl mx-auto bg-white mt-12 mb-12 p-8 rounded-xl shadow fade-in">
+  <h2 class="text-3xl font-bold text-blue-600 mb-4 text-center">Admin Dashboard</h2>
+
+  <div id="adminLogin" class="max-w-md mx-auto mb-6">
+    <input type="password" id="adminPassword" placeholder="Admin Password"
+      class="w-full p-3 rounded border mb-3" />
+    <button id="adminLoginBtn"
+      class="w-full py-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold rounded-lg">
+      Unlock Dashboard
+    </button>
+    <p id="adminLoginMsg" class="text-center text-sm text-red-500 mt-2"></p>
+  </div>
+
+  <div id="adminContent" class="hidden">
+    <h3 class="text-xl font-semibold mb-4">Upcoming Appointments</h3>
+    <table class="min-w-full text-sm text-left border">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="px-3 py-2 border">Name</th>
+          <th class="px-3 py-2 border">Service</th>
+          <th class="px-3 py-2 border">Date</th>
+          <th class="px-3 py-2 border">Time</th>
+          <th class="px-3 py-2 border">Phone</th>
+          <th class="px-3 py-2 border">Email</th>
+          <th class="px-3 py-2 border">Created</th>
+        </tr>
+      </thead>
+      <tbody id="appointmentsBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<footer class="text-center text-gray-600 py-6 mt-4">
+  &copy; 2025 Barber Shop. All Rights Reserved.
+</footer>
+
+<div id="lightbox"><img src="" /></div>
+
+<script type="module">
+// Lightbox
+const lightbox = document.getElementById("lightbox");
+const lightboxImg = lightbox.querySelector("img");
+
+document.querySelectorAll(".lightbox-target img").forEach(img => {
+  img.addEventListener("click", () => {
+    lightboxImg.src = img.src;
+    lightbox.style.display = "flex";
+  });
+});
+lightbox.addEventListener("click", () => lightbox.style.display = "none");
+
+// Admin lock
+const ADMIN_PASSWORD = "barber123";
+adminLoginBtn.onclick = () => {
+  if (adminPassword.value === ADMIN_PASSWORD) {
+    adminLogin.classList.add("hidden");
+    adminContent.classList.remove("hidden");
+  } else adminLoginMsg.textContent = "Incorrect password";
+};
+
+// Firebase placeholder
+</script>
+
+</body>
+</html>
