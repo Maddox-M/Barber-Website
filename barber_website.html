@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barber Shop - Glasgow, KY</title>
+  <style>
+    /* Basic Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+    body { line-height: 1.6; color: #333; background-color: #f4f4f4; }
+    header, section, footer { padding: 20px; max-width: 1000px; margin: auto; }
+
+    /* Header */
+    header { background: #222; color: #fff; text-align: center; padding: 40px 20px; }
+    header h1 { font-size: 2.5em; margin-bottom: 10px; }
+    header p { font-size: 1.2em; }
+
+    /* About */
+    #about { background: #fff; margin-top: 20px; padding: 20px; border-radius: 5px; }
+
+    /* Portfolio */
+    #portfolio { margin-top: 20px; }
+    #portfolio h2 { text-align: center; margin-bottom: 20px; }
+    .gallery { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .gallery img { width: 200px; height: auto; border-radius: 5px; transition: transform 0.3s; }
+    .gallery img:hover { transform: scale(1.05); }
+
+    /* Appointment form */
+    #appointment { background: #fff; margin-top: 20px; padding: 20px; border-radius: 5px; }
+    #appointment h2 { text-align: center; margin-bottom: 20px; }
+    form { display: flex; flex-direction: column; gap: 10px; max-width: 500px; margin: auto; }
+    input, select, textarea { padding: 10px; font-size: 1em; border: 1px solid #ccc; border-radius: 5px; }
+    button { padding: 10px; font-size: 1em; border: none; background: #222; color: #fff; cursor: pointer; border-radius: 5px; }
+    button:hover { background: #555; }
+
+    /* Contact */
+    #contact { background: #fff; margin-top: 20px; padding: 20px; border-radius: 5px; }
+    #contact h2 { text-align: center; margin-bottom: 20px; }
+    .contact-info { text-align: center; line-height: 1.8; }
+
+    /* Footer */
+    footer { text-align: center; margin-top: 20px; font-size: 0.9em; color: #555; }
+
+    /* Responsive */
+    @media(max-width: 600px){
+      .gallery { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <h1>Barber Shop</h1>
+    <p>123 Barber Road, Glasgow, KY</p>
+    <p>Call: 270-123-4567 | Email: barber@gmail.com</p>
+  </header>
+
+  <!-- About Me -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm your local barber in Glasgow, KY. I specialize in classic and modern haircut styles, ensuring each client leaves looking their best. I pride myself on precision, creativity, and making every client feel confident with their new look.</p>
+    <p>Hours: Monday - Friday, 9AM - 5PM</p>
+  </section>
+
+  <!-- Portfolio -->
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+    <div class="gallery">
+      <img src="before-after1.jpg" alt="Low Taper Fade Before & After">
+      <img src="before-after2.jpg" alt="Classic Haircut Before & After">
+      <img src="before-after3.jpg" alt="High Fade Before & After">
+    </div>
+  </section>
+
+  <!-- Appointment Booking -->
+  <section id="appointment">
+    <h2>Book an Appointment</h2>
+    <form id="bookingForm">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="tel" name="phone" placeholder="Your Phone" required>
+      <select name="service" required>
+        <option value="">Select Haircut Style</option>
+        <option value="low-taper-fade">Low Taper Fade</option>
+        <option value="high-fade">High Fade</option>
+        <option value="classic-cut">Classic Haircut</option>
+      </select>
+      <input type="date" name="date" required>
+      <input type="time" name="time" required>
+      <button type="submit">Book Appointment</button>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>123 Barber Road, Glasgow, KY</p>
+      <p>Phone: 270-123-4567</p>
+      <p>Email: barber@gmail.com</p>
+      <p>Hours: Mon - Fri, 9AM - 5PM</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Barber Shop. All rights reserved.
+  </footer>
+
+  <!-- Simple JS -->
+  <script>
+    const form = document.getElementById('bookingForm');
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Your appointment request has been received.');
+      console.log({
+        name: form.name.value,
+        email: form.email.value,
+        phone: form.phone.value,
+        service: form.service.value,
+        date: form.date.value,
+        time: form.time.value
+      });
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
